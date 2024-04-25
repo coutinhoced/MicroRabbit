@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MicroRabbit.Domain.Core.Events
 {
-    //IRequest come from Mediator NuGet Package
+    //IRequest comes from Mediator NuGet Package
     public abstract class Message : IRequest<bool>
     {
         public string MessageType { get; protected set; }
