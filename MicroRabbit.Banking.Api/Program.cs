@@ -24,7 +24,6 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
 builder.Services.RegisterServices();
 
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
