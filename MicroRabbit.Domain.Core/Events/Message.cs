@@ -14,6 +14,8 @@ namespace MicroRabbit.Domain.Core.Events
 
         protected Message()
         {
+
+           
             MessageType = GetType().Name;
         }
 

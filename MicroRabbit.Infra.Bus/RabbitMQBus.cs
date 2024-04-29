@@ -126,9 +126,9 @@ namespace MicroRabbit.Infra.Bus
                     var handler = Activator.CreateInstance(subscription);
                     if (handler == null) continue;
 
-                    var eventType = _eventTypes.SingleOrDefault(t => t.Name == eventName);
+                    Type? eventType = _eventTypes.SingleOrDefault(t => t.Name == eventName);
                     var @event = JsonConvert.DeserializeObject(message, eventType);
-                    var concreteType = typeof(IEventHandler<>).MakeGenericType(eventType);
+                    Type? concreteType = typeof(IEventHandler<>).MakeGenericType(eventType);
                     //this does the main work of routing to the right Handler
                     await (Task)concreteType.GetMethod("Handle").Invoke(handler, new object[] { @event });
                     
